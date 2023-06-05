@@ -121,6 +121,10 @@ class FGKBot(commands.Cog):
             for i, wav_dict in enumerate(wav_dict_list):
                 wav_data = self.tts_api.say(wav_dict['text'], self.voice_token)
                 wav_file_path = os.path.join(tmp_dir, f"segment_{i}.wav")
+
+                if not os.path.exists("crockpot"):
+                    os.mkdir("crockpot")
+
                 with open(wav_file_path, 'wb') as f:
                     f.write(wav_data.content)
                 wav_file_paths.append(wav_file_path)
