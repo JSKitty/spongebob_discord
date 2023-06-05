@@ -1,5 +1,5 @@
 # spongebob_discord with video avatar
-![](https://raw.githubusercontent.com/atorsvn/spongebob_discord/main/ezgif.com-video-to-gif.gif)
+![](https://raw.githubusercontent.com/atorsvn/spongebob_discord/main/ezgif.com-optimize.gif)
 
 To use just fill out the configuration file "config.json" and run 
 ```bash install.sh```
