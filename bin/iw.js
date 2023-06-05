@@ -79,7 +79,26 @@ async function do_inworld_chat(text, user_name) {
           connection.close();
       } else if (packet.isText()) {
         tempObject.text = packet.text.text;
-        outputArray.push(tempObject);
+
+        // Check if the audio is already available in tempObject
+        if (tempObject.audio) {
+          outputArray.push(tempObject);
+          tempObject = {
+            "text": "",
+            "audio": ""
+          };
+        }
+      } else if (packet.isAudio()) {
+        tempObject.audio = packet.audio.chunk;
+
+        // Check if the text is already available in tempObject
+        if (tempObject.text) {
+          outputArray.push(tempObject);
+          tempObject = {
+            "text": "",
+            "audio": ""
+          };
+        }
       }
 })
   const connection = inworldClient.build();
